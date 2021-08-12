@@ -47,13 +47,26 @@ class Aapp extends Component{
           
           .then((d) => {
             let searchDate =[...d]
-            searchDate.map((a)=>{
-              const find = this.state.date.find((k)=>{
-                return a.id  !== k.id
-              })
-              find.shelf= "none"
-            })
-            console.log(d)
+
+            // let date = this.state.date
+            // let aaa = []
+            // for(let a in searchDate){
+            //   for(let b  in date){
+            //     if(a.id == b.id){
+            //       let o={...a}
+
+            //       let bb= b.shelf
+            //       o.shelf=bb
+            //       // return aaa.push(o)
+            //     }else{
+            //       let oo ={...a}
+            //       oo.shelf="none"
+
+            //       // return aaa.push(oo)
+            //     }
+            //   }
+            // }
+            // console.log("all",aaa)
             this.setState(()=>({searchDate}))
         })
         .catch((err)=>{
@@ -71,7 +84,8 @@ class Aapp extends Component{
           if(a.id===x.id){
             return a.shelf=e
           }else {
-            let id = x.shelf=e
+            let id = x.shelf
+            id=e
             date.push(id)
           }
         })
@@ -112,9 +126,9 @@ class Aapp extends Component{
                 <Route exact path = "/search"  render={()=>(
                     <SearchApp
                     searchDate={this.state.searchDate}
-                    onupdeat={this.onupdeat}
+                    onupdeat={this.onupdeatMyBook}
                     updateQuery={this.updateQuery}
-                    
+                    books={this.state.date}
                     />
                     )} />
 

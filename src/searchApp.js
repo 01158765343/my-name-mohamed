@@ -25,12 +25,41 @@ class SearchApp extends React.Component {
     }
   }
   render (){
-    const {  searchDate } = this.props
-    
-    // const searchDatea= query === "" ? searchDate 
-    // :searchDate.filter((c) => (
-    //   c.title.toLowerCase().includes(query.toLowerCase())
-    // ))
+    const {  searchDate ,books} = this.props
+
+    let AllBookTosearsh =[];
+    let verifiedBooks =[];
+    if(searchDate.length > 0){
+        searchDate.map((book) => { 
+         books.forEach((bookOnShelf)=>{
+           if (book.id == bookOnShelf.id){
+            verifiedBooks.push(book)
+             let c={...book}
+            let aa=bookOnShelf.shelf
+            c.shelf=aa
+            AllBookTosearsh.push(c)
+            //  console.log(c)
+            }
+         })
+        })
+      } 
+      
+
+      if (verifiedBooks.length > 0){
+        let asa =searchDate.filter((c)=>{
+            return verifiedBooks.indexOf(c) < 0
+        })
+        
+        console.log("faf",asa)
+        asa.map((c)=>{
+          let x={...c}
+          x.shelf="none"
+          AllBookTosearsh.push(x)
+        })
+        console.log("allbook",AllBookTosearsh)
+      }
+      
+      console.log("eldeeb",verifiedBooks)
       return (
           <div>
             <div className="search-books">
@@ -43,7 +72,7 @@ class SearchApp extends React.Component {
             <div className="search-books-results">
           </div>
             <ol className="books-grid">
-            {      searchDate.map((book)=>( 
+            {      AllBookTosearsh.map((book)=>( 
                     <li key={book.id}>
                       <div className="book">
                         <div className="book-top">

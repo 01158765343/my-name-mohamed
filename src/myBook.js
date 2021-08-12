@@ -35,7 +35,7 @@ class MyBook extends React.Component {
                                         <div className="book-top">
                                         <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
                                         <div className="book-shelf-changer">
-                                            <select  onChange={(e)=>this.props.onupdeat(e.target.value , book)}>
+                                            <select value= {book.shelf} onChange={(e)=>this.props.onupdeat(e.target.value , book)}>
                                             <option value="move" >Move to...</option>
                                             <option value="currentlyReading" disabled>Currently Reading</option>
                                             <option value="wantToRead">Want to Read</option>
@@ -66,7 +66,7 @@ class MyBook extends React.Component {
                                         <div className="book-top">
                                         <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
                                         <div className="book-shelf-changer">
-                                            <select onChange={(e)=>this.props.onupdeat(e.target.value , book)} >
+                                            <select value= {book.shelf} onChange={(e)=>this.props.onupdeat(e.target.value , book)} >
                                             <option value="move" >Move to...</option>
                                             <option value="currentlyReading">Currently Reading</option>
                                             <option value="wantToRead" disabled >Want to Read</option>
@@ -96,7 +96,7 @@ class MyBook extends React.Component {
                                         <div className="book-top">
                                         <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.thumbnail})` }}></div>
                                         <div className="book-shelf-changer">
-                                            <select onChange={(e)=>this.props.onupdeat(e.target.value , book)}>
+                                            <select value= {book.shelf} onChange={(e)=>this.props.onupdeat(e.target.value , book)}>
                                             <option value="move" >Move to...</option>
                                             <option value="currentlyReading">Currently Reading</option>
                                             <option value="wantToRead">Want to Read</option>
